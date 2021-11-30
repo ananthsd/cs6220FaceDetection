@@ -1,5 +1,7 @@
 
 import requests
+from functools import cmp_to_key
+import difflib
 
 S = requests.Session()
 
@@ -28,6 +30,8 @@ def get_wikipedia_results(search):
         "title":entry['title'],
         "url":entry['fullurl']
         })
+    # result = sorted(result, key=cmp_to_key(compare))
+    result = sorted(result, key = lambda x: difflib.SequenceMatcher(None, x['title'], search).ratio(), reverse=True)
     return result
 
 # test = get_wikipedia_results("lego")
