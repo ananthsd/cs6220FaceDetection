@@ -5,3 +5,5 @@ This repository contains the server for our cs6220 Face Detection Project. `serv
 ## Running the app
 
 You can run the server by making sure you have all the python dependencies needed (including DeepFace), and running `FLASK_APP=server flask run`. Flask will say the url that you are supposed to make calls to.
+
+You can download the dependencies by running `pip install requirements.txt`
