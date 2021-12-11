@@ -22,6 +22,7 @@ def upload_file():
         output = {"error":True}
     else:
         output = {"id":0, "name": name, "wikipedia": get_wikipedia_results(name), "error": False}
+    # print("send "+output)
     return jsonify(output)
 
 @app.route('/', methods=['GET'])

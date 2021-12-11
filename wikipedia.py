@@ -21,16 +21,13 @@ def get_wikipedia_results(search):
     R = S.get(url=URL, params=PARAMS)
     DATA = R.json()
     entries = DATA['query']['pages']
-    # print(entries)
     result = []
     for id in entries:
-        # print(id)
         entry = entries[id]
         result.append({
         "title":entry['title'],
         "url":entry['fullurl']
         })
-    # result = sorted(result, key=cmp_to_key(compare))
     result = sorted(result, key = lambda x: difflib.SequenceMatcher(None, x['title'], search).ratio(), reverse=True)
     return result
 
